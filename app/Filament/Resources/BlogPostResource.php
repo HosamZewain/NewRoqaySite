@@ -37,8 +37,8 @@ class BlogPostResource extends Resource
                         ]),
                     \Filament\Schemas\Components\Tabs\Tab::make('Media')
                         ->schema([
-                            \Filament\Forms\Components\FileUpload::make('featured_image')->image()->directory('blog'),
-                            \Filament\Forms\Components\FileUpload::make('og_image')->image()->directory('seo'),
+                            \Filament\Forms\Components\FileUpload::make('featured_image')->image()->disk('public')->directory('blog'),
+                            \Filament\Forms\Components\FileUpload::make('og_image')->image()->disk('public')->directory('seo'),
                         ]),
                     \Filament\Schemas\Components\Tabs\Tab::make('SEO')
                         ->schema([

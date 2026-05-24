@@ -57,6 +57,14 @@ if [ -d "$SIBLING_PUBLIC" ] && [ ! -L "$SIBLING_PUBLIC" ]; then
   cp -R public/build "$SIBLING_PUBLIC/" 2>/dev/null || true
   cp -R public/images "$SIBLING_PUBLIC/" 2>/dev/null || true
   cp -f public/robots.txt "$SIBLING_PUBLIC/" 2>/dev/null || true
+
+  # Storage symlink: served from public_html/storage on the web,
+  # backed by laravel/storage/app/public on disk.
+  if [ ! -L "$SIBLING_PUBLIC/storage" ]; then
+    rm -rf "$SIBLING_PUBLIC/storage"
+    ln -s ../laravel/storage/app/public "$SIBLING_PUBLIC/storage"
+    echo "→ Recreated $SIBLING_PUBLIC/storage symlink"
+  fi
   cp -f public/favicon.ico "$SIBLING_PUBLIC/" 2>/dev/null || true
 fi
 

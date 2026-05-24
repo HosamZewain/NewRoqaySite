@@ -38,7 +38,7 @@ class ServiceResource extends Resource
                     \Filament\Schemas\Components\Tabs\Tab::make('Media')
                         ->schema([
                             \Filament\Forms\Components\TextInput::make('icon'),
-                            \Filament\Forms\Components\FileUpload::make('image')->image()->directory('services'),
+                            \Filament\Forms\Components\FileUpload::make('image')->image()->disk('public')->directory('services'),
                         ]),
                     \Filament\Schemas\Components\Tabs\Tab::make('SEO Arabic')
                         ->schema([

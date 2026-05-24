@@ -35,7 +35,7 @@ class PageResource extends Resource
                         ]),
                     \Filament\Schemas\Components\Tabs\Tab::make('Media')
                         ->schema([
-                            \Filament\Forms\Components\FileUpload::make('featured_image')->image()->directory('pages'),
+                            \Filament\Forms\Components\FileUpload::make('featured_image')->image()->disk('public')->directory('pages'),
                         ]),
                     \Filament\Schemas\Components\Tabs\Tab::make('SEO Arabic')
                         ->schema([

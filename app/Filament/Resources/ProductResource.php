@@ -74,9 +74,9 @@ class ProductResource extends Resource
                     \Filament\Schemas\Components\Tabs\Tab::make('Media')
                         ->schema([
                             \Filament\Forms\Components\TextInput::make('icon'),
-                            \Filament\Forms\Components\FileUpload::make('featured_image')->image()->directory('products'),
-                            \Filament\Forms\Components\FileUpload::make('gallery_images')->image()->multiple()->directory('products'),
-                            \Filament\Forms\Components\FileUpload::make('og_image')->image()->directory('seo'),
+                            \Filament\Forms\Components\FileUpload::make('featured_image')->image()->disk('public')->directory('products'),
+                            \Filament\Forms\Components\FileUpload::make('gallery_images')->image()->disk('public')->multiple()->directory('products'),
+                            \Filament\Forms\Components\FileUpload::make('og_image')->image()->disk('public')->directory('seo'),
                         ]),
                     \Filament\Schemas\Components\Tabs\Tab::make('SEO Arabic')
                         ->schema([

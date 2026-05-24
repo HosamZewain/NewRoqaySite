@@ -41,8 +41,8 @@ class HomepageSectionResource extends Resource
                         ]),
                     \Filament\Schemas\Components\Tabs\Tab::make('Media')
                         ->schema([
-                            \Filament\Forms\Components\FileUpload::make('image')->image()->directory('sections'),
-                            \Filament\Forms\Components\FileUpload::make('background_image')->image()->directory('sections'),
+                            \Filament\Forms\Components\FileUpload::make('image')->image()->disk('public')->directory('sections'),
+                            \Filament\Forms\Components\FileUpload::make('background_image')->image()->disk('public')->directory('sections'),
                             \Filament\Forms\Components\TextInput::make('button_url'),
                         ]),
                     \Filament\Schemas\Components\Tabs\Tab::make('Extra Data')

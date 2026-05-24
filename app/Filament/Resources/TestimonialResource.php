@@ -28,7 +28,7 @@ class TestimonialResource extends Resource
                 \Filament\Forms\Components\TextInput::make('position_en'),
                 \Filament\Forms\Components\Textarea::make('review_ar')->required()->columnSpanFull(),
                 \Filament\Forms\Components\Textarea::make('review_en')->required()->columnSpanFull(),
-                \Filament\Forms\Components\FileUpload::make('image')->image()->directory('testimonials')->columnSpanFull(),
+                \Filament\Forms\Components\FileUpload::make('image')->image()->disk('public')->directory('testimonials')->columnSpanFull(),
                 \Filament\Forms\Components\Select::make('rating')
                     ->options([1=>'1 Star', 2=>'2 Stars', 3=>'3 Stars', 4=>'4 Stars', 5=>'5 Stars'])
                     ->default(5)
