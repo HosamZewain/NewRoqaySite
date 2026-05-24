@@ -21,7 +21,7 @@ PHP_BIN="${PHP_BIN:-/opt/alt/php84/usr/bin/php}"
 if [ ! -x "$PHP_BIN" ]; then
   PHP_BIN="$(command -v php)"   # fall back to whatever's on PATH
 fi
-COMPOSER_BIN="${COMPOSER_BIN:-/usr/bin/composer}"
+COMPOSER_BIN="${COMPOSER_BIN:-/usr/local/bin/composer}"
 composer() { "$PHP_BIN" "$COMPOSER_BIN" "$@"; }
 php()      { "$PHP_BIN" "$@"; }
 
