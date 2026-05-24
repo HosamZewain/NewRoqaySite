@@ -5,14 +5,18 @@
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
-            <!-- Logo -->
+            <!-- Logo + bilingual wordmark -->
             <div class="flex-shrink-0 flex items-center">
-                <a href="{{ route($locale . '.home') }}" class="flex items-center" aria-label="{{ $isRtl ? ($settings['site_name_ar'] ?? 'رقي') : ($settings['site_name_en'] ?? 'RoQay') }}">
+                <a href="{{ route($locale . '.home') }}" class="flex items-center gap-3" aria-label="RoQay — رقي">
                     {{-- Prefer the brand PNG; falls back to SVG approximation if missing --}}
                     <img src="{{ asset('images/logo.png') }}"
                          onerror="this.onerror=null;this.src='{{ asset('images/logo.svg') }}';"
-                         alt="{{ $isRtl ? ($settings['site_name_ar'] ?? 'رقي') : ($settings['site_name_en'] ?? 'RoQay') }}"
+                         alt="RoQay"
                          class="h-12 sm:h-14 w-auto bg-white rounded-lg p-1.5 shadow-sm">
+                    <span class="flex flex-col leading-none" aria-hidden="true">
+                        <span lang="ar" dir="rtl" class="font-tajawal font-extrabold text-xl sm:text-2xl text-white">رقي</span>
+                        <span lang="en" dir="ltr" class="font-inter font-bold text-[0.7rem] sm:text-xs text-cyan-300 tracking-[0.25em] mt-1">RoQay</span>
+                    </span>
                 </a>
             </div>
 
