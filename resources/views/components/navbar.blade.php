@@ -14,8 +14,8 @@
                          alt="RoQay"
                          class="h-12 sm:h-14 w-auto bg-white rounded-lg p-1.5 shadow-sm">
                     <span class="flex flex-col leading-none" aria-hidden="true">
-                        <span lang="ar" dir="rtl" class="font-tajawal font-extrabold text-xl sm:text-2xl text-white">رقي</span>
-                        <span lang="en" dir="ltr" class="font-inter font-bold text-[0.7rem] sm:text-xs text-cyan-300 tracking-[0.25em] mt-1">RoQay</span>
+                        <span lang="ar" dir="rtl" class="font-cairo font-semibold text-xl sm:text-2xl text-white">رقي</span>
+                        <span lang="en" dir="ltr" class="font-cairo font-semibold text-[0.7rem] sm:text-xs text-cyan-300 tracking-[0.25em] mt-1">RoQay</span>
                     </span>
                 </a>
             </div>

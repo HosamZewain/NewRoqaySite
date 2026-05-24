@@ -3,6 +3,7 @@
 @theme {
   --font-inter: "Inter", sans-serif;
   --font-tajawal: "Tajawal", sans-serif;
+  --font-cairo: "Cairo", sans-serif;
 }
 
 @layer utilities {
