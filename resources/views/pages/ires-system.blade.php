@@ -16,6 +16,7 @@
 
     $capabilities = [
         [
+            'slot' => 'pos',
             'icon' => 'point_of_sale',
             'title_ar' => 'نقطة بيع POS سريعة وعملية',
             'title_en' => 'Fast, focused POS',
@@ -39,6 +40,7 @@
             ],
         ],
         [
+            'slot' => 'channels',
             'icon' => 'sell',
             'title_ar' => 'أنواع الطلبات والقنوات',
             'title_en' => 'Order types & sales channels',
@@ -58,6 +60,7 @@
             ],
         ],
         [
+            'slot' => 'kitchen',
             'icon' => 'kitchen',
             'title_ar' => 'شاشة المطبخ',
             'title_en' => 'Kitchen Display',
@@ -77,6 +80,7 @@
             ],
         ],
         [
+            'slot' => 'counter',
             'icon' => 'takeout_dining',
             'title_ar' => 'شاشات التسليم والكاونتر',
             'title_en' => 'Pickup & counter screens',
@@ -96,6 +100,7 @@
             ],
         ],
         [
+            'slot' => 'dispatch',
             'icon' => 'fact_check',
             'title_ar' => 'لوحة Dispatch للطلبات الخارجية',
             'title_en' => 'Dispatch board for external orders',
@@ -115,6 +120,7 @@
             ],
         ],
         [
+            'slot' => 'customer',
             'icon' => 'groups',
             'title_ar' => 'إدارة العملاء',
             'title_en' => 'Customer management',
@@ -196,6 +202,14 @@
 
     // Helper for the screenshot placeholder boxes
     $shotLabel = $isRtl ? 'صورة الشاشة ستوضع هنا' : 'Screenshot will be added here';
+
+    // Returns the URL for an uploaded screenshot at a given slot, or null when empty.
+    // The admin uploads under products → iRes Screenshots and Filament stores
+    // them in the `screenshots` JSON column keyed by slot name.
+    $shotUrl = function (string $slot) use ($product): ?string {
+        $path = data_get($product->screenshots, $slot);
+        return $path ? asset('storage/' . $path) : null;
+    };
 @endphp
 
 @section('seo')
@@ -240,6 +254,17 @@
             border: 1px dashed rgba(148,163,184,0.45);
             color: rgba(226,232,240,0.85);
             overflow: hidden;
+        }
+        /* When an admin-uploaded screenshot fills the frame, drop the placeholder background */
+        .ires-screenshot.is-filled {
+            background: none;
+            border: 0;
+        }
+        .ires-screenshot.is-filled > img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
         }
         .ires-screenshot__frame {
             display: flex;
@@ -349,20 +374,24 @@
                     </div>
                 </div>
 
-                {{-- Hero screenshot placeholder: POS dashboard mockup --}}
+                {{-- Hero screenshot: uploaded image if present, otherwise a styled placeholder --}}
                 <div class="relative perspective-1000">
-                    <div class="ires-screenshot aspect-[4/3] shadow-2xl ires-float">
-                        <div class="ires-screenshot__dots">
-                            <span style="background:#ef4444"></span>
-                            <span style="background:#eab308"></span>
-                            <span style="background:#22c55e"></span>
-                        </div>
-                        <div class="ires-screenshot__frame">
-                            <span class="material-icons-round text-5xl text-cyan-300/80">point_of_sale</span>
-                            <span class="ires-screenshot__chip">{{ $isRtl ? 'لقطة شاشة' : 'Screenshot' }}</span>
-                            <div class="ires-screenshot__label">{{ $isRtl ? 'واجهة الكاشير - iRes POS' : 'iRes POS — cashier screen' }}</div>
-                            <div class="ires-screenshot__hint">{{ $shotLabel }}</div>
-                        </div>
+                    <div class="ires-screenshot aspect-[4/3] shadow-2xl ires-float {{ $shotUrl('hero') ? 'is-filled' : '' }}">
+                        @if($url = $shotUrl('hero'))
+                            <img src="{{ $url }}" alt="{{ $isRtl ? 'واجهة الكاشير - iRes POS' : 'iRes POS — cashier screen' }}" loading="lazy">
+                        @else
+                            <div class="ires-screenshot__dots">
+                                <span style="background:#ef4444"></span>
+                                <span style="background:#eab308"></span>
+                                <span style="background:#22c55e"></span>
+                            </div>
+                            <div class="ires-screenshot__frame">
+                                <span class="material-icons-round text-5xl text-cyan-300/80">point_of_sale</span>
+                                <span class="ires-screenshot__chip">{{ $isRtl ? 'لقطة شاشة' : 'Screenshot' }}</span>
+                                <div class="ires-screenshot__label">{{ $isRtl ? 'واجهة الكاشير - iRes POS' : 'iRes POS — cashier screen' }}</div>
+                                <div class="ires-screenshot__hint">{{ $shotLabel }}</div>
+                            </div>
+                        @endif
                     </div>
 
                     {{-- Floating badges --}}
@@ -479,20 +508,24 @@
                             </ul>
                         </div>
 
-                        {{-- Screenshot placeholder --}}
+                        {{-- Screenshot: uploaded image for this capability slot, else placeholder --}}
                         <div class="{{ $i % 2 === 1 ? 'lg:order-1' : '' }}">
-                            <div class="ires-screenshot aspect-[16/10] shadow-xl">
-                                <div class="ires-screenshot__dots">
-                                    <span style="background:#ef4444"></span>
-                                    <span style="background:#eab308"></span>
-                                    <span style="background:#22c55e"></span>
-                                </div>
-                                <div class="ires-screenshot__frame">
-                                    <span class="material-icons-round text-5xl text-cyan-300/80">{{ $c['icon'] }}</span>
-                                    <span class="ires-screenshot__chip">{{ $isRtl ? 'لقطة شاشة' : 'Screenshot' }}</span>
-                                    <div class="ires-screenshot__label">{{ $isRtl ? $c['shot_ar'] : $c['shot_en'] }}</div>
-                                    <div class="ires-screenshot__hint">{{ $shotLabel }}</div>
-                                </div>
+                            <div class="ires-screenshot aspect-[16/10] shadow-xl {{ $shotUrl($c['slot']) ? 'is-filled' : '' }}">
+                                @if($url = $shotUrl($c['slot']))
+                                    <img src="{{ $url }}" alt="{{ $isRtl ? $c['shot_ar'] : $c['shot_en'] }}" loading="lazy">
+                                @else
+                                    <div class="ires-screenshot__dots">
+                                        <span style="background:#ef4444"></span>
+                                        <span style="background:#eab308"></span>
+                                        <span style="background:#22c55e"></span>
+                                    </div>
+                                    <div class="ires-screenshot__frame">
+                                        <span class="material-icons-round text-5xl text-cyan-300/80">{{ $c['icon'] }}</span>
+                                        <span class="ires-screenshot__chip">{{ $isRtl ? 'لقطة شاشة' : 'Screenshot' }}</span>
+                                        <div class="ires-screenshot__label">{{ $isRtl ? $c['shot_ar'] : $c['shot_en'] }}</div>
+                                        <div class="ires-screenshot__hint">{{ $shotLabel }}</div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -524,19 +557,23 @@
                 @endforeach
             </div>
 
-            {{-- Wide screenshot placeholder for inventory --}}
-            <div class="ires-screenshot aspect-[21/9] shadow-2xl">
-                <div class="ires-screenshot__dots">
-                    <span style="background:#ef4444"></span>
-                    <span style="background:#eab308"></span>
-                    <span style="background:#22c55e"></span>
-                </div>
-                <div class="ires-screenshot__frame">
-                    <span class="material-icons-round text-5xl text-cyan-300/80">warehouse</span>
-                    <span class="ires-screenshot__chip">{{ $isRtl ? 'لقطة شاشة' : 'Screenshot' }}</span>
-                    <div class="ires-screenshot__label">{{ $isRtl ? 'شاشة الجرد اليومي / حركات المخزون' : 'Bulk stocktake / inventory movements screen' }}</div>
-                    <div class="ires-screenshot__hint">{{ $shotLabel }}</div>
-                </div>
+            {{-- Wide screenshot: uploaded inventory image if present --}}
+            <div class="ires-screenshot aspect-[21/9] shadow-2xl {{ $shotUrl('inventory') ? 'is-filled' : '' }}">
+                @if($url = $shotUrl('inventory'))
+                    <img src="{{ $url }}" alt="{{ $isRtl ? 'شاشة الجرد اليومي / حركات المخزون' : 'Bulk stocktake / inventory movements screen' }}" loading="lazy">
+                @else
+                    <div class="ires-screenshot__dots">
+                        <span style="background:#ef4444"></span>
+                        <span style="background:#eab308"></span>
+                        <span style="background:#22c55e"></span>
+                    </div>
+                    <div class="ires-screenshot__frame">
+                        <span class="material-icons-round text-5xl text-cyan-300/80">warehouse</span>
+                        <span class="ires-screenshot__chip">{{ $isRtl ? 'لقطة شاشة' : 'Screenshot' }}</span>
+                        <div class="ires-screenshot__label">{{ $isRtl ? 'شاشة الجرد اليومي / حركات المخزون' : 'Bulk stocktake / inventory movements screen' }}</div>
+                        <div class="ires-screenshot__hint">{{ $shotLabel }}</div>
+                    </div>
+                @endif
             </div>
         </div>
     </section>
@@ -573,18 +610,22 @@
             </div>
 
             <div class="lg:sticky lg:top-24">
-                <div class="ires-screenshot aspect-[4/5] shadow-2xl">
-                    <div class="ires-screenshot__dots">
-                        <span style="background:#ef4444"></span>
-                        <span style="background:#eab308"></span>
-                        <span style="background:#22c55e"></span>
-                    </div>
-                    <div class="ires-screenshot__frame">
-                        <span class="material-icons-round text-5xl text-cyan-300/80">account_balance</span>
-                        <span class="ires-screenshot__chip">{{ $isRtl ? 'لقطة شاشة' : 'Screenshot' }}</span>
-                        <div class="ires-screenshot__label">{{ $isRtl ? 'لوحة الصندوق والبنك والعهد' : 'Cash, bank & custody dashboard' }}</div>
-                        <div class="ires-screenshot__hint">{{ $shotLabel }}</div>
-                    </div>
+                <div class="ires-screenshot aspect-[4/5] shadow-2xl {{ $shotUrl('financial') ? 'is-filled' : '' }}">
+                    @if($url = $shotUrl('financial'))
+                        <img src="{{ $url }}" alt="{{ $isRtl ? 'لوحة الصندوق والبنك والعهد' : 'Cash, bank & custody dashboard' }}" loading="lazy">
+                    @else
+                        <div class="ires-screenshot__dots">
+                            <span style="background:#ef4444"></span>
+                            <span style="background:#eab308"></span>
+                            <span style="background:#22c55e"></span>
+                        </div>
+                        <div class="ires-screenshot__frame">
+                            <span class="material-icons-round text-5xl text-cyan-300/80">account_balance</span>
+                            <span class="ires-screenshot__chip">{{ $isRtl ? 'لقطة شاشة' : 'Screenshot' }}</span>
+                            <div class="ires-screenshot__label">{{ $isRtl ? 'لوحة الصندوق والبنك والعهد' : 'Cash, bank & custody dashboard' }}</div>
+                            <div class="ires-screenshot__hint">{{ $shotLabel }}</div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -614,7 +655,10 @@
                 @endforeach
             </div>
 
-            <div class="ires-screenshot aspect-[21/9] shadow-2xl">
+            <div class="ires-screenshot aspect-[21/9] shadow-2xl {{ $shotUrl('reports') ? 'is-filled' : '' }}">
+                @if($url = $shotUrl('reports'))
+                    <img src="{{ $url }}" alt="{{ $isRtl ? 'تقرير اليومية الشامل / الأرباح والخسائر' : 'Daily report / operational P&L' }}" loading="lazy">
+                @else
                 <div class="ires-screenshot__dots">
                     <span style="background:#ef4444"></span>
                     <span style="background:#eab308"></span>
@@ -626,6 +670,7 @@
                     <div class="ires-screenshot__label">{{ $isRtl ? 'تقرير اليومية الشامل / الأرباح والخسائر' : 'Daily report / operational P&L' }}</div>
                     <div class="ires-screenshot__hint">{{ $shotLabel }}</div>
                 </div>
+                @endif
             </div>
         </div>
     </section>
@@ -709,18 +754,22 @@
                     </div>
                 </div>
                 <div class="px-8 pb-8">
-                    <div class="ires-screenshot aspect-[16/7] shadow-lg">
-                        <div class="ires-screenshot__dots">
-                            <span style="background:#ef4444"></span>
-                            <span style="background:#eab308"></span>
-                            <span style="background:#22c55e"></span>
-                        </div>
-                        <div class="ires-screenshot__frame">
-                            <span class="material-icons-round text-4xl text-cyan-300/80">storefront</span>
-                            <span class="ires-screenshot__chip">{{ $isRtl ? 'لقطة شاشة' : 'Screenshot' }}</span>
-                            <div class="ires-screenshot__label">{{ $isRtl ? 'موقع الطلبات للعملاء' : 'Customer ordering site' }}</div>
-                            <div class="ires-screenshot__hint">{{ $shotLabel }}</div>
-                        </div>
+                    <div class="ires-screenshot aspect-[16/7] shadow-lg {{ $shotUrl('online_orders') ? 'is-filled' : '' }}">
+                        @if($url = $shotUrl('online_orders'))
+                            <img src="{{ $url }}" alt="{{ $isRtl ? 'موقع الطلبات للعملاء' : 'Customer ordering site' }}" loading="lazy">
+                        @else
+                            <div class="ires-screenshot__dots">
+                                <span style="background:#ef4444"></span>
+                                <span style="background:#eab308"></span>
+                                <span style="background:#22c55e"></span>
+                            </div>
+                            <div class="ires-screenshot__frame">
+                                <span class="material-icons-round text-4xl text-cyan-300/80">storefront</span>
+                                <span class="ires-screenshot__chip">{{ $isRtl ? 'لقطة شاشة' : 'Screenshot' }}</span>
+                                <div class="ires-screenshot__label">{{ $isRtl ? 'موقع الطلبات للعملاء' : 'Customer ordering site' }}</div>
+                                <div class="ires-screenshot__hint">{{ $shotLabel }}</div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
