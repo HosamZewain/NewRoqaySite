@@ -78,17 +78,15 @@ class HomepageSectionSeeder extends Seeder
             'is_active' => true,
         ]);
         
-        // We can add empty records for other sections to prevent errors in view
-        $otherSections = ['products_preview', 'ai_software', 'industries', 'testimonials', 'blog_preview', 'faq', 'final_cta'];
+        // Visibility-only placeholders. Their content is hardcoded in the home view;
+        // these rows exist purely so admins can toggle the section on/off.
+        $otherSections = ['trust_strip', 'products_preview', 'ai_software', 'industries', 'testimonials', 'blog_preview', 'faq', 'final_cta'];
         $order = 5;
         foreach($otherSections as $key) {
-             HomepageSection::create([
-                'section_key' => $key,
-                'title_ar' => $key,
-                'title_en' => $key,
-                'is_active' => true,
-                'sort_order' => $order++,
-             ]);
+            HomepageSection::updateOrCreate(
+                ['section_key' => $key],
+                ['title_ar' => $key, 'title_en' => $key, 'is_active' => true, 'sort_order' => $order++]
+            );
         }
     }
 }

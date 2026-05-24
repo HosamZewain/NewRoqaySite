@@ -280,7 +280,9 @@
 
     {{-- ════════════════════════════════════════════════════════════
          TRUST / INDUSTRY STRIP — marquee of industry icons
+         Toggle via homepage_sections.trust_strip in admin.
     ═══════════════════════════════════════════════════════════════ --}}
+    @if(isset($sections['trust_strip']))
     <section class="bg-slate-50 py-10 border-b border-slate-100 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
             <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">
@@ -302,6 +304,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     {{-- ════════════════════════════════════════════════════════════
          WHY ROQAY
@@ -340,8 +343,9 @@
     @endif
 
     {{-- ════════════════════════════════════════════════════════════
-         INDUSTRIES SERVED
+         INDUSTRIES SERVED — toggle via homepage_sections.industries
     ═══════════════════════════════════════════════════════════════ --}}
+    @if(isset($sections['industries']))
     <section class="py-24 bg-white" x-data x-intersect.once="$el.querySelectorAll('.reveal').forEach((el, i) => setTimeout(() => el.classList.add('is-visible'), i * 80))">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-14 reveal">
@@ -369,6 +373,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     {{-- ════════════════════════════════════════════════════════════
          PRODUCTS PREVIEW
@@ -692,8 +697,9 @@
     @endif
 
     {{-- ════════════════════════════════════════════════════════════
-         FINAL CTA
+         FINAL CTA — toggle via homepage_sections.final_cta
     ═══════════════════════════════════════════════════════════════ --}}
+    @if(isset($sections['final_cta']))
     <section class="py-24 relative overflow-hidden bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-600 animate-gradient-shift">
         <div class="absolute inset-0">
             <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-blob"></div>
@@ -738,5 +744,6 @@
             </div>
         </div>
     </section>
+    @endif
 
 @endsection

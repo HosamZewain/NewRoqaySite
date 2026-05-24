@@ -35,6 +35,9 @@ composer install --no-dev --optimize-autoloader --prefer-dist --no-interaction
 echo "→ Running migrations"
 php artisan migrate --force
 
+echo "→ Backfilling homepage section placeholders"
+php artisan sections:sync
+
 echo "→ Clearing and rebuilding caches"
 php artisan config:clear
 php artisan route:clear

@@ -9,6 +9,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Middleware\SecurityHeaders;
 use App\Http\Middleware\SetLocale;
+use App\Http\Middleware\TrackPageVisit;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,7 @@ Route::get('/robots.txt', function () {
 })->name('robots');
 
 // Arabic routes (default language, no prefix)
-Route::middleware([SetLocale::class . ':ar', SecurityHeaders::class])
+Route::middleware([SetLocale::class . ':ar', SecurityHeaders::class, TrackPageVisit::class])
     ->group(function () {
         Route::get('/', [HomeController::class, 'index'])->name('ar.home');
         Route::get('/products', [ProductController::class, 'index'])->name('ar.products');
@@ -44,7 +45,7 @@ Route::middleware([SetLocale::class . ':ar', SecurityHeaders::class])
 
 // English routes (with /en prefix)
 Route::prefix('en')
-    ->middleware([SetLocale::class . ':en', SecurityHeaders::class])
+    ->middleware([SetLocale::class . ':en', SecurityHeaders::class, TrackPageVisit::class])
     ->group(function () {
         Route::get('/', [HomeController::class, 'index'])->name('en.home');
         Route::get('/products', [ProductController::class, 'index'])->name('en.products');
