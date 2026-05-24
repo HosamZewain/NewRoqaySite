@@ -48,6 +48,18 @@ php artisan event:cache || true
 echo "→ Ensuring storage symlink"
 php artisan storage:link 2>/dev/null || true
 
+# Hostinger shim mode: if a sibling public_html/ exists and is NOT a symlink to
+# laravel/public, sync the latest static assets into it so /build, /images, etc
+# stay current after each git pull.
+SIBLING_PUBLIC="../public_html"
+if [ -d "$SIBLING_PUBLIC" ] && [ ! -L "$SIBLING_PUBLIC" ]; then
+  echo "→ Syncing public/ → public_html/ (shim mode)"
+  cp -R public/build "$SIBLING_PUBLIC/" 2>/dev/null || true
+  cp -R public/images "$SIBLING_PUBLIC/" 2>/dev/null || true
+  cp -f public/robots.txt "$SIBLING_PUBLIC/" 2>/dev/null || true
+  cp -f public/favicon.ico "$SIBLING_PUBLIC/" 2>/dev/null || true
+fi
+
 echo "→ Setting writable permissions on storage / bootstrap/cache"
 chmod -R 775 storage bootstrap/cache 2>/dev/null || true
 
