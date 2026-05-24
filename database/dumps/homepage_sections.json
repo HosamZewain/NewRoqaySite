@@ -1,0 +1,329 @@
+[
+    {
+        "id": 1,
+        "section_key": "hero",
+        "title_ar": "رقي لأنظمة برمجية أذكى ونمو أسرع",
+        "title_en": "RoQay for Smarter Software and Faster Growth",
+        "subtitle_ar": "نطور ونوفر أنظمة برمجية تساعد الشركات على إدارة عملياتها، تحسين الأداء، تقليل الأخطاء، واتخاذ قرارات أفضل من خلال حلول عملية قابلة للتطوير.",
+        "subtitle_en": "We develop and deliver scalable software systems that help companies manage operations, improve performance, reduce errors, and make better business decisions.",
+        "content_ar": null,
+        "content_en": null,
+        "image": null,
+        "background_image": null,
+        "button_text_ar": null,
+        "button_text_en": null,
+        "button_url": null,
+        "extra_data": {
+            "buttons": [
+                {
+                    "text_ar": "استكشف منتجات رقي",
+                    "text_en": "Explore RoQay Products",
+                    "url": "/products",
+                    "style": "primary"
+                },
+                {
+                    "text_ar": "اطلب عرض توضيحي",
+                    "text_en": "Request a Demo",
+                    "url": "/contact",
+                    "style": "secondary"
+                },
+                {
+                    "text_ar": "تواصل عبر واتساب",
+                    "text_en": "Contact via WhatsApp",
+                    "url": "https://wa.me/966500000000",
+                    "style": "whatsapp"
+                }
+            ]
+        },
+        "sort_order": 1,
+        "is_active": 1,
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 2,
+        "section_key": "why_roqay",
+        "title_ar": "لماذا تختار رقي؟",
+        "title_en": "Why Choose RoQay?",
+        "subtitle_ar": "نحن لسنا مجرد مزود تقني، بل شريك لنجاحك",
+        "subtitle_en": "We are not just a technical provider, but a partner in your success",
+        "content_ar": null,
+        "content_en": null,
+        "image": null,
+        "background_image": null,
+        "button_text_ar": null,
+        "button_text_en": null,
+        "button_url": null,
+        "extra_data": {
+            "cards": [
+                {
+                    "title_ar": "خبرة واسعة",
+                    "title_en": "Extensive Experience",
+                    "icon": "workspace_premium",
+                    "desc_ar": "نمتلك فريق محترف بخبرة تمتد لسنوات في السوق.",
+                    "desc_en": "We have a professional team with years of market experience."
+                },
+                {
+                    "title_ar": "حلول متكاملة",
+                    "title_en": "Integrated Solutions",
+                    "icon": "extension",
+                    "desc_ar": "نقدم لك كل ما تحتاجه في مكان واحد.",
+                    "desc_en": "We provide everything you need in one place."
+                },
+                {
+                    "title_ar": "دعم فني متميز",
+                    "title_en": "Premium Support",
+                    "icon": "support_agent",
+                    "desc_ar": "نحن معك دائماً لضمان استمرارية عملك.",
+                    "desc_en": "We are always with you to ensure your business continuity."
+                }
+            ]
+        },
+        "sort_order": 2,
+        "is_active": 1,
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 3,
+        "section_key": "stats",
+        "title_ar": "أرقام نفخر بها",
+        "title_en": "Numbers We Are Proud Of",
+        "subtitle_ar": null,
+        "subtitle_en": null,
+        "content_ar": null,
+        "content_en": null,
+        "image": null,
+        "background_image": null,
+        "button_text_ar": null,
+        "button_text_en": null,
+        "button_url": null,
+        "extra_data": {
+            "counters": [
+                {
+                    "value": 150,
+                    "suffix_ar": "+",
+                    "suffix_en": "+",
+                    "label_ar": "عميل",
+                    "label_en": "Clients"
+                },
+                {
+                    "value": 200,
+                    "suffix_ar": "+",
+                    "suffix_en": "+",
+                    "label_ar": "مشروع",
+                    "label_en": "Projects"
+                },
+                {
+                    "value": 15,
+                    "suffix_ar": "+",
+                    "suffix_en": "+",
+                    "label_ar": "سنة خبرة",
+                    "label_en": "Years Experience"
+                },
+                {
+                    "value": 99,
+                    "suffix_ar": "%",
+                    "suffix_en": "%",
+                    "label_ar": "رضا العملاء",
+                    "label_en": "Client Satisfaction"
+                }
+            ]
+        },
+        "sort_order": 3,
+        "is_active": 1,
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 4,
+        "section_key": "how_it_works",
+        "title_ar": "كيف نعمل",
+        "title_en": "How We Work",
+        "subtitle_ar": null,
+        "subtitle_en": null,
+        "content_ar": null,
+        "content_en": null,
+        "image": null,
+        "background_image": null,
+        "button_text_ar": null,
+        "button_text_en": null,
+        "button_url": null,
+        "extra_data": {
+            "steps": [
+                {
+                    "number": 1,
+                    "title_ar": "تحليل الاحتياجات",
+                    "title_en": "Requirements Analysis",
+                    "desc_ar": "نفهم طبيعة عملك واحتياجاتك الفعلية",
+                    "desc_en": "We understand your business and actual needs"
+                },
+                {
+                    "number": 2,
+                    "title_ar": "تصميم الحل",
+                    "title_en": "Solution Design",
+                    "desc_ar": "نصمم الحل الأنسب لعملك",
+                    "desc_en": "We design the best solution for your business"
+                },
+                {
+                    "number": 3,
+                    "title_ar": "التنفيذ والتدريب",
+                    "title_en": "Implementation & Training",
+                    "desc_ar": "ننفذ النظام وندرب فريقك",
+                    "desc_en": "We implement the system and train your team"
+                },
+                {
+                    "number": 4,
+                    "title_ar": "الدعم المستمر",
+                    "title_en": "Ongoing Support",
+                    "desc_ar": "نوفر دعم فني مستمر بعد التشغيل",
+                    "desc_en": "We provide continuous technical support"
+                }
+            ]
+        },
+        "sort_order": 4,
+        "is_active": 1,
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 5,
+        "section_key": "products_preview",
+        "title_ar": "products_preview",
+        "title_en": "products_preview",
+        "subtitle_ar": null,
+        "subtitle_en": null,
+        "content_ar": null,
+        "content_en": null,
+        "image": null,
+        "background_image": null,
+        "button_text_ar": null,
+        "button_text_en": null,
+        "button_url": null,
+        "extra_data": null,
+        "sort_order": 5,
+        "is_active": 1,
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 6,
+        "section_key": "ai_software",
+        "title_ar": "ai_software",
+        "title_en": "ai_software",
+        "subtitle_ar": null,
+        "subtitle_en": null,
+        "content_ar": null,
+        "content_en": null,
+        "image": null,
+        "background_image": null,
+        "button_text_ar": null,
+        "button_text_en": null,
+        "button_url": null,
+        "extra_data": null,
+        "sort_order": 6,
+        "is_active": 1,
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 7,
+        "section_key": "industries",
+        "title_ar": "industries",
+        "title_en": "industries",
+        "subtitle_ar": null,
+        "subtitle_en": null,
+        "content_ar": null,
+        "content_en": null,
+        "image": null,
+        "background_image": null,
+        "button_text_ar": null,
+        "button_text_en": null,
+        "button_url": null,
+        "extra_data": null,
+        "sort_order": 7,
+        "is_active": 1,
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 8,
+        "section_key": "testimonials",
+        "title_ar": "testimonials",
+        "title_en": "testimonials",
+        "subtitle_ar": null,
+        "subtitle_en": null,
+        "content_ar": null,
+        "content_en": null,
+        "image": null,
+        "background_image": null,
+        "button_text_ar": null,
+        "button_text_en": null,
+        "button_url": null,
+        "extra_data": null,
+        "sort_order": 8,
+        "is_active": 1,
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 9,
+        "section_key": "blog_preview",
+        "title_ar": "blog_preview",
+        "title_en": "blog_preview",
+        "subtitle_ar": null,
+        "subtitle_en": null,
+        "content_ar": null,
+        "content_en": null,
+        "image": null,
+        "background_image": null,
+        "button_text_ar": null,
+        "button_text_en": null,
+        "button_url": null,
+        "extra_data": null,
+        "sort_order": 9,
+        "is_active": 1,
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 10,
+        "section_key": "faq",
+        "title_ar": "faq",
+        "title_en": "faq",
+        "subtitle_ar": null,
+        "subtitle_en": null,
+        "content_ar": null,
+        "content_en": null,
+        "image": null,
+        "background_image": null,
+        "button_text_ar": null,
+        "button_text_en": null,
+        "button_url": null,
+        "extra_data": null,
+        "sort_order": 10,
+        "is_active": 1,
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 11,
+        "section_key": "final_cta",
+        "title_ar": "final_cta",
+        "title_en": "final_cta",
+        "subtitle_ar": null,
+        "subtitle_en": null,
+        "content_ar": null,
+        "content_en": null,
+        "image": null,
+        "background_image": null,
+        "button_text_ar": null,
+        "button_text_en": null,
+        "button_url": null,
+        "extra_data": null,
+        "sort_order": 11,
+        "is_active": 1,
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    }
+]

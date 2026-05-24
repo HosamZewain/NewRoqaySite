@@ -1,0 +1,191 @@
+[
+    {
+        "id": 1,
+        "key": "site_name_ar",
+        "value": "رقي",
+        "group": "general",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 2,
+        "key": "site_name_en",
+        "value": "RoQay",
+        "group": "general",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 3,
+        "key": "phone",
+        "value": "+201111822277",
+        "group": "contact",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-24 10:53:45"
+    },
+    {
+        "id": 4,
+        "key": "whatsapp",
+        "value": "+201111822277",
+        "group": "contact",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-24 10:54:03"
+    },
+    {
+        "id": 5,
+        "key": "email",
+        "value": "info@roqay.com",
+        "group": "contact",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 6,
+        "key": "address_ar",
+        "value": "المنصورة - مصر",
+        "group": "contact",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-24 10:55:31"
+    },
+    {
+        "id": 7,
+        "key": "address_en",
+        "value": "Mansoura - Egypt",
+        "group": "contact",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-24 10:55:54"
+    },
+    {
+        "id": 8,
+        "key": "facebook",
+        "value": "https://facebook.com/roqay",
+        "group": "social",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 9,
+        "key": "twitter",
+        "value": "https://twitter.com/roqay",
+        "group": "social",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 10,
+        "key": "instagram",
+        "value": "https://instagram.com/roqay",
+        "group": "social",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 11,
+        "key": "linkedin",
+        "value": "https://linkedin.com/company/roqay",
+        "group": "social",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 12,
+        "key": "default_seo_title_ar",
+        "value": "رقي - أنظمة برمجية أذكى لنمو أسرع",
+        "group": "seo",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 13,
+        "key": "default_seo_title_en",
+        "value": "RoQay - Smarter Software for Faster Growth",
+        "group": "seo",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 14,
+        "key": "default_seo_description_ar",
+        "value": "رقي شركة برمجيات متخصصة في تطوير وبيع وتنفيذ الأنظمة البرمجية وحلول الأعمال",
+        "group": "seo",
+        "type": "textarea",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 15,
+        "key": "default_seo_description_en",
+        "value": "RoQay is a software company specializing in developing, selling, and implementing software systems and business solutions",
+        "group": "seo",
+        "type": "textarea",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 16,
+        "key": "default_seo_keywords_ar",
+        "value": "رقي، برمجيات، أنظمة إدارة، نظام مطاعم، حلول برمجية",
+        "group": "seo",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 17,
+        "key": "default_seo_keywords_en",
+        "value": "RoQay, software, management systems, restaurant system, software solutions",
+        "group": "seo",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 18,
+        "key": "copyright_ar",
+        "value": "© 2024 رقي. جميع الحقوق محفوظة.",
+        "group": "footer",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 19,
+        "key": "copyright_en",
+        "value": "© 2024 RoQay. All rights reserved.",
+        "group": "footer",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 20,
+        "key": "footer_text_ar",
+        "value": "رقي - شريكك التقني لبناء أنظمة عملية",
+        "group": "footer",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    },
+    {
+        "id": 21,
+        "key": "footer_text_en",
+        "value": "RoQay - Your technology partner for practical systems",
+        "group": "footer",
+        "type": "text",
+        "created_at": "2026-05-23 22:23:45",
+        "updated_at": "2026-05-23 22:23:45"
+    }
+]
