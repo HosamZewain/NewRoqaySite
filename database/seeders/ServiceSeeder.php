@@ -1,0 +1,71 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Service;
+use Illuminate\Database\Seeder;
+
+class ServiceSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $services = [
+            [
+                'title_ar' => 'بيع وتنفيذ الأنظمة الجاهزة',
+                'title_en' => 'Ready-made Software Implementation',
+                'slug_ar' => 'ready-made-software-implementation',
+                'slug_en' => 'ready-made-software-implementation-en',
+                'short_description_ar' => 'نقدم مجموعة من الأنظمة الجاهزة والمجربة التي تلبي احتياجات مختلف القطاعات.',
+                'short_description_en' => 'We offer a range of ready-made and tested systems that meet the needs of various sectors.',
+                'content_ar' => '<p>نوفر أنظمة جاهزة ذات كفاءة عالية يمكن تنفيذها بسرعة في بيئة عملك.</p>',
+                'content_en' => '<p>We provide highly efficient ready-made systems that can be quickly implemented in your work environment.</p>',
+                'icon' => 'shopping_cart',
+                'sort_order' => 1,
+            ],
+            [
+                'title_ar' => 'تطوير أنظمة مخصصة',
+                'title_en' => 'Custom Software Development',
+                'slug_ar' => 'custom-software-development',
+                'slug_en' => 'custom-software-development-en',
+                'short_description_ar' => 'نقوم بتطوير برمجيات مفصلة خصيصاً لتناسب متطلبات عملك الدقيقة.',
+                'short_description_en' => 'We develop software tailored specifically to fit your exact business requirements.',
+                'content_ar' => '<p>فريقنا من المطورين والمهندسين جاهز لتحويل أفكارك إلى واقع برمجي ملموس.</p>',
+                'content_en' => '<p>Our team of developers and engineers is ready to turn your ideas into a tangible software reality.</p>',
+                'icon' => 'code',
+                'sort_order' => 2,
+            ],
+            [
+                'title_ar' => 'تحليل الأعمال والعمليات',
+                'title_en' => 'Business and Operations Analysis',
+                'slug_ar' => 'business-operations-analysis',
+                'slug_en' => 'business-operations-analysis-en',
+                'short_description_ar' => 'نحلل عملياتك الحالية لنقترح أفضل الحلول التقنية لتطويرها وتحسينها.',
+                'short_description_en' => 'We analyze your current operations to propose the best technical solutions to develop and improve them.',
+                'content_ar' => '<p>نقدم استشارات مبنية على تحليل عميق لضمان تحقيق أقصى استفادة من التكنولوجيا.</p>',
+                'content_en' => '<p>We provide consultations based on deep analysis to ensure maximum benefit from technology.</p>',
+                'icon' => 'analytics',
+                'sort_order' => 3,
+            ],
+            [
+                'title_ar' => 'تطوير مواقع وتطبيقات ويب',
+                'title_en' => 'Web Application Development',
+                'slug_ar' => 'web-application-development',
+                'slug_en' => 'web-application-development-en',
+                'short_description_ar' => 'تصميم وتطوير مواقع إلكترونية وتطبيقات ويب متقدمة تواكب أحدث التقنيات.',
+                'short_description_en' => 'Designing and developing advanced websites and web applications that keep pace with the latest technologies.',
+                'content_ar' => '<p>نبني تواجداً رقمياً قوياً لشركتك من خلال منصات ويب حديثة ومتجاوبة.</p>',
+                'content_en' => '<p>We build a strong digital presence for your company through modern and responsive web platforms.</p>',
+                'icon' => 'web',
+                'sort_order' => 4,
+            ]
+        ];
+
+        foreach ($services as $service) {
+            $service['is_active'] = true;
+            Service::create($service);
+        }
+    }
+}
