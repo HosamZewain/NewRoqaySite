@@ -95,6 +95,8 @@ class ProductResource extends Resource
                         // Show only for the iRes product (matches by slug). New products won't see this tab.
                         ->visible(fn (?Product $record): bool => $record !== null
                             && in_array('ires-system', [$record->slug_ar, $record->slug_en], true)),
+                    \Filament\Schemas\Components\Tabs\Tab::make('Pricing')
+                        ->schema(static::pricingFields()),
                     \Filament\Schemas\Components\Tabs\Tab::make('Settings')
                         ->schema([
                             \Filament\Forms\Components\TextInput::make('sort_order')->numeric()->default(0),
@@ -144,6 +146,88 @@ class ProductResource extends Resource
             'index' => Pages\ListProducts::route('/'),
             'create' => Pages\CreateProduct::route('/create'),
             'edit' => Pages\EditProduct::route('/{record}/edit'),
+        ];
+    }
+
+    /**
+     * Pricing tab fields. Stored as:
+     *   pricing_enabled  → boolean column
+     *   pricing.{...}    → keys in the pricing JSON column
+     *   pricing.packages → array of package rows
+     */
+    protected static function pricingFields(): array
+    {
+        return [
+            \Filament\Forms\Components\Toggle::make('pricing_enabled')
+                ->label('Show pricing section on this product page')
+                ->helperText('When off, the section is hidden even if packages are configured.')
+                ->default(false)
+                ->inline(false),
+
+            \Filament\Schemas\Components\Section::make('Section headers')
+                ->schema([
+                    \Filament\Schemas\Components\Grid::make(2)->schema([
+                        \Filament\Forms\Components\TextInput::make('pricing.title_ar')->label('Title (AR)')->placeholder('اختر الباقة المناسبة'),
+                        \Filament\Forms\Components\TextInput::make('pricing.title_en')->label('Title (EN)')->placeholder('Choose your plan'),
+                    ]),
+                    \Filament\Schemas\Components\Grid::make(2)->schema([
+                        \Filament\Forms\Components\Textarea::make('pricing.subtitle_ar')->label('Subtitle (AR)')->rows(2),
+                        \Filament\Forms\Components\Textarea::make('pricing.subtitle_en')->label('Subtitle (EN)')->rows(2),
+                    ]),
+                    \Filament\Schemas\Components\Grid::make(2)->schema([
+                        \Filament\Forms\Components\TextInput::make('pricing.currency_ar')->label('Currency (AR)')->placeholder('ر.س')->default('ر.س'),
+                        \Filament\Forms\Components\TextInput::make('pricing.currency_en')->label('Currency (EN)')->placeholder('SAR')->default('SAR'),
+                    ]),
+                    \Filament\Schemas\Components\Grid::make(2)->schema([
+                        \Filament\Forms\Components\TextInput::make('pricing.footnote_ar')->label('Footnote (AR)')->placeholder('الأسعار شاملة الضريبة'),
+                        \Filament\Forms\Components\TextInput::make('pricing.footnote_en')->label('Footnote (EN)')->placeholder('Prices include VAT'),
+                    ]),
+                ])
+                ->columnSpanFull()
+                ->collapsible(),
+
+            \Filament\Forms\Components\Repeater::make('pricing.packages')
+                ->label('Packages')
+                ->helperText('Add 2 or 3 packages. Each can be paid yearly or quarterly.')
+                ->minItems(0)
+                ->maxItems(4)
+                ->reorderable()
+                ->collapsible()
+                ->cloneable()
+                ->itemLabel(fn (array $state): ?string => $state['name_en'] ?? $state['name_ar'] ?? 'New package')
+                ->schema([
+                    \Filament\Schemas\Components\Grid::make(2)->schema([
+                        \Filament\Forms\Components\TextInput::make('name_ar')->label('Name (AR)')->required(),
+                        \Filament\Forms\Components\TextInput::make('name_en')->label('Name (EN)')->required(),
+                    ]),
+                    \Filament\Schemas\Components\Grid::make(2)->schema([
+                        \Filament\Forms\Components\Textarea::make('description_ar')->label('Description (AR)')->rows(2),
+                        \Filament\Forms\Components\Textarea::make('description_en')->label('Description (EN)')->rows(2),
+                    ]),
+                    \Filament\Schemas\Components\Grid::make(2)->schema([
+                        \Filament\Forms\Components\TextInput::make('yearly_price')->label('Yearly price')->numeric()->minValue(0)->required(),
+                        \Filament\Forms\Components\TextInput::make('quarterly_price')->label('Quarterly price')->numeric()->minValue(0)->required()
+                            ->helperText('Per quarter. The savings vs. 4× quarterly is shown automatically.'),
+                    ]),
+                    \Filament\Schemas\Components\Grid::make(2)->schema([
+                        \Filament\Forms\Components\Repeater::make('features_ar')
+                            ->label('Features (AR)')
+                            ->simple(\Filament\Forms\Components\TextInput::make('feature')->required())
+                            ->minItems(0),
+                        \Filament\Forms\Components\Repeater::make('features_en')
+                            ->label('Features (EN)')
+                            ->simple(\Filament\Forms\Components\TextInput::make('feature')->required())
+                            ->minItems(0),
+                    ]),
+                    \Filament\Schemas\Components\Grid::make(2)->schema([
+                        \Filament\Forms\Components\TextInput::make('cta_text_ar')->label('CTA text (AR)')->placeholder('اشترك الآن'),
+                        \Filament\Forms\Components\TextInput::make('cta_text_en')->label('CTA text (EN)')->placeholder('Get started'),
+                    ]),
+                    \Filament\Forms\Components\Toggle::make('is_featured')
+                        ->label('Mark as most popular (highlighted card)')
+                        ->default(false)
+                        ->inline(false),
+                ]),
         ];
     }
 

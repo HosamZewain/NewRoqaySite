@@ -43,6 +43,8 @@ class DataDumpCommand extends Command
             'benefits_ar', 'benefits_en',
             'modules_ar', 'modules_en',
             'gallery_images',
+            'screenshots',
+            'pricing',
             'implementation_steps_ar', 'implementation_steps_en',
         ],
     ];

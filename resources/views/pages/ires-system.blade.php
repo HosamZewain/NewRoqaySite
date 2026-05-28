@@ -931,6 +931,9 @@
     </section>
     @endif
 
+    {{-- Per-product pricing — toggle from the admin's Pricing tab --}}
+    @include('partials.pricing-section', ['product' => $product])
+
     {{-- ─────────────────────────────────────────────────────────────
          FINAL CTA + DEMO FORM
     ───────────────────────────────────────────────────────────── --}}

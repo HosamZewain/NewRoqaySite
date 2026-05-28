@@ -252,6 +252,9 @@
     </section>
     @endif
 
+    {{-- Per-product pricing — toggle from the admin's Pricing tab --}}
+    @include('partials.pricing-section', ['product' => $product])
+
     <!-- Form Section -->
     <section id="demo" class="py-20 bg-blue-50 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -126,7 +126,10 @@
         "sort_order": 3,
         "is_active": 1,
         "created_at": "2026-05-23 22:23:45",
-        "updated_at": "2026-05-24 10:52:01"
+        "updated_at": "2026-05-24 10:52:01",
+        "screenshots": null,
+        "pricing_enabled": 0,
+        "pricing": null
     },
     {
         "id": 2,
@@ -177,7 +180,10 @@
         "sort_order": 2,
         "is_active": 1,
         "created_at": "2026-05-23 22:23:45",
-        "updated_at": "2026-05-23 22:23:45"
+        "updated_at": "2026-05-23 22:23:45",
+        "screenshots": null,
+        "pricing_enabled": 0,
+        "pricing": null
     },
     {
         "id": 3,
@@ -228,7 +234,10 @@
         "sort_order": 3,
         "is_active": 1,
         "created_at": "2026-05-23 22:23:45",
-        "updated_at": "2026-05-23 22:23:45"
+        "updated_at": "2026-05-23 22:23:45",
+        "screenshots": null,
+        "pricing_enabled": 0,
+        "pricing": null
     },
     {
         "id": 4,
@@ -267,7 +276,10 @@
         "sort_order": 4,
         "is_active": 1,
         "created_at": "2026-05-23 22:23:45",
-        "updated_at": "2026-05-23 22:23:45"
+        "updated_at": "2026-05-23 22:23:45",
+        "screenshots": null,
+        "pricing_enabled": 0,
+        "pricing": null
     },
     {
         "id": 5,
@@ -306,7 +318,10 @@
         "sort_order": 5,
         "is_active": 1,
         "created_at": "2026-05-23 22:23:45",
-        "updated_at": "2026-05-23 22:23:45"
+        "updated_at": "2026-05-23 22:23:45",
+        "screenshots": null,
+        "pricing_enabled": 0,
+        "pricing": null
     },
     {
         "id": 6,
@@ -407,6 +422,99 @@
         "sort_order": 1,
         "is_active": 1,
         "created_at": "2026-05-24 10:52:01",
-        "updated_at": "2026-05-24 10:52:01"
+        "updated_at": "2026-05-28 13:13:00",
+        "screenshots": null,
+        "pricing_enabled": 1,
+        "pricing": {
+            "title_ar": "اختر الباقة المناسبة لمطعمك",
+            "title_en": "Choose the right plan for your restaurant",
+            "subtitle_ar": "ابدأ صغيرًا وكبّر مع نمو فروعك — جميع الباقات تشمل الدعم الفني.",
+            "subtitle_en": "Start small and scale as your restaurant grows — all plans include support.",
+            "currency_ar": "ر.س",
+            "currency_en": "SAR",
+            "footnote_ar": "الأسعار شاملة الضريبة. يمكن الإلغاء في أي وقت.",
+            "footnote_en": "Prices include VAT. Cancel anytime.",
+            "packages": [
+                {
+                    "name_ar": "أساسي",
+                    "name_en": "Basic",
+                    "description_ar": "مناسب لمطعم واحد بدأ التوسع.",
+                    "description_en": "Right for a single growing restaurant.",
+                    "yearly_price": 3600,
+                    "quarterly_price": 1100,
+                    "features_ar": [
+                        "نقاط بيع POS",
+                        "شاشة مطبخ",
+                        "إدارة مخزون موقع واحد",
+                        "تقارير المبيعات اليومية",
+                        "دعم فني عبر البريد"
+                    ],
+                    "features_en": [
+                        "POS",
+                        "Kitchen display",
+                        "Single-location inventory",
+                        "Daily sales reports",
+                        "Email support"
+                    ],
+                    "cta_text_ar": "ابدأ مع الأساسي",
+                    "cta_text_en": "Start with Basic",
+                    "is_featured": false
+                },
+                {
+                    "name_ar": "الأعمال",
+                    "name_en": "Business",
+                    "description_ar": "للمطاعم التي تحتاج إدارة مخزون وتسليم متقدم.",
+                    "description_en": "For restaurants needing advanced stock and delivery flow.",
+                    "yearly_price": 7200,
+                    "quarterly_price": 2100,
+                    "features_ar": [
+                        "كل مزايا الباقة الأساسية",
+                        "مخزون متعدد المواقع",
+                        "لوحة Dispatch",
+                        "تقارير الفود كوست",
+                        "موقع طلبات للعملاء",
+                        "دعم خلال ساعات العمل"
+                    ],
+                    "features_en": [
+                        "Everything in Basic",
+                        "Multi-location inventory",
+                        "Dispatch board",
+                        "Food-cost reports",
+                        "Customer ordering site",
+                        "Business-hours support"
+                    ],
+                    "cta_text_ar": "اختر باقة الأعمال",
+                    "cta_text_en": "Choose Business",
+                    "is_featured": true
+                },
+                {
+                    "name_ar": "المؤسسات",
+                    "name_en": "Enterprise",
+                    "description_ar": "لسلاسل المطاعم متعددة الفروع.",
+                    "description_en": "For multi-branch restaurant chains.",
+                    "yearly_price": 14400,
+                    "quarterly_price": 4200,
+                    "features_ar": [
+                        "كل مزايا الأعمال",
+                        "فروع غير محدودة",
+                        "تقارير موحدة",
+                        "API وتكاملات",
+                        "صلاحيات متقدمة",
+                        "مدير حساب مخصص"
+                    ],
+                    "features_en": [
+                        "Everything in Business",
+                        "Unlimited branches",
+                        "Unified reports",
+                        "API & integrations",
+                        "Advanced permissions",
+                        "Dedicated account manager"
+                    ],
+                    "cta_text_ar": "تواصل معنا",
+                    "cta_text_en": "Contact us",
+                    "is_featured": false
+                }
+            ]
+        }
     }
 ]
